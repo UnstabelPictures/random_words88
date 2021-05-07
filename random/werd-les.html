@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)https://immense-fjord-17343.herokuapp.com/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title></title>
+  
+  
+  
+      <style type="text/css">
+body {
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 1.2em;
+  margin: 0;
+  max-width: 960px;
+  padding: 0px 0px;
+  line-height: 1.65em;
+  background: black;
+  color: #fff;
+  font-weight: 300;
+}
+
+
+
+#wordbox {
+    /*opacity: 0;*/
+    margin: 0px auto 0;
+
+    width: 99vw;
+    height: 100vh;
+    font-size: 200px;
+    text-align: center;
+    background: black;
+    color: #ffc300;
+    transition: 1s linear;
+}
+
+
+      </style>
+
+  
+<script src="chrome-extension://mooikfkahbdckldjjndioackbalphokd/assets/prompt.js"></script></head>
+
+<body>
+
+
+<form name="WordForm">  
+<input type="TEXT" name="WordBox" id="wordbox" onclick="PickRandomWord(document.WordForm);"><br>
+
+</form>
+  
+  
+
+    <script>
+var NumberOfWords = 109
+var used = [];
+var words = new BuildArray(NumberOfWords)
+//Les's new word list
+words[1] = "Hottie"
+words[2] = "Oom Pa Pa"
+words[3] = "Quagmire"
+words[4] = "Tulips"
+words[5] = "Gargantuan"
+words[6] = "Snail Trail"
+words[7] = "Crackalackin"
+words[8] = "Primrose"
+words[9] = "Tea Bag"
+words[10] = "Algonquin" 
+words[11] = "Suck"
+words[12] = "Trot"
+words[13] = "Semi Precious"
+words[14] = "Clitoris"
+words[15] = "Binky"		
+words[16] = "sleepy"
+words[17] = "Convulsion"
+words[18] = "Ex-tremulous Orgasm "
+words[19] = "Extrapolate"
+words[20] = "Furry"
+words[21] = "Silky Smooth"	
+words[22] = "Crack"
+words[23] = "Anus"
+words[24] = "Cattywampus" 
+words[25] = "Frigid"
+words[26] = "Brazilian"
+words[27] = "Tricky Dick"
+words[28] = "Boss Hog"
+words[29] = "Malarkey" 
+words[30] = "Spunk"
+words[31] = "Loquacious"  
+words[32] = "Snot Bubble"
+words[33] = "Black Hole"
+words[34] = "Squat"
+words[35] = "Pussygrabber"
+words[36] = "Sawhorse" 
+words[37] = "Peeper"
+words[38] = "Angry Dragon"
+words[39] = "Chew"
+words[40] = "Salacious" 
+words[41] = "Rectum"
+words[42] = "Fangu" 
+words[43] = "Bear Claw"
+words[44] = "Bullwinkle"
+words[45] = "Chili Dog"
+words[46] = "Fortitude"
+words[47] = "Grunt"
+words[48] = "Colon"
+words[49] = "Trippy"
+words[50] = "Magma"  
+words[51] = "Power Grip"
+words[52] = "Steamer"
+words[53] = "Prick"
+words[54] = "Daisy Chain"
+words[55] = "Lilliputian"
+words[56] = "Kumquat" 
+words[57] = "Snoodling" 
+words[58] = "Benjamin"
+words[59] = "C’est la vie"
+words[60] = "Vaffanculo"
+words[61] = "Suck it"
+words[62] = "White water"
+words[63] = "Headbanger"
+words[64] = "Chinga du madre"
+words[65] = "Igneous"
+words[66] = "Masturbating Orangutan"
+words[67] = "Slow Ride"
+words[68] = "Spittoon"
+words[69] = "Mr Noodle" 
+words[70] = "Rosie O’Donnell" 
+words[71] = "Finger Bang"
+words[72] = "Bunk"
+words[73] = "Jungian"
+words[74] = "Hopefulness"
+words[75] = "Satisfaction"
+words[76] = "Last Dance for Mary Jane"
+words[77] = "Lift Off"
+words[78] = "Fanny Rub"
+words[79] = "Prostate"
+words[80] = "Wenus" 
+words[81] = "Perpendicular "
+words[82] = "Titties" 
+words[83] = "Quash "
+words[84] = "Harmonious"
+words[85] = "Truckers"
+words[86] = "Specialists" 
+words[87] = "Sapsucker"
+words[88] = "Olygoplin" 
+words[89] = "Pinche"
+words[90] = "Olygopline"
+words[91] = "sassy"
+words[92] = "Soupy" 
+words[93] = "Ass Wrecker" 
+words[94] = "Orgy" 
+words[95] = "Strap On"
+words[96] = "Magna Carta" 
+words[97] = "Pearl Necklace"
+words[98] = "Shrimp Boat" 
+words[99] = "Consistent Quality Devices"
+words[100] = "Tummy Tuck" 
+words[101] = "Bassoon"
+words[102] = "Conductor" 
+words[103] = "Oboe"
+words[104] = "Premature Ejaculation"
+words[105] = "Squirting "
+words[106] = "Tactical"
+words[107] = "Reverse Cowgirl" 
+words[108] = "Hung"
+words[109] = "Derelict" 
+
+
+// Use the following variables to 
+// define your random words:
+// words[1] = 
+// words[2] = "brightwork"
+// words[3] = 
+// words[4] = "sassy"
+// words[5] = 
+// words[6] = "grandchild"
+// words[7] = "newfangled"
+// words[8] = "flugelhorn"
+// words[9] = "mythologer"
+// words[10] = "pluperfect"
+// words[11] = "jellygraph"
+// words[12] = "quickthorn"
+// words[13] = "BitCoin"
+// words[14] = "The Villages"
+// words[15] = 
+// words[16] = "middlebrow"
+// words[17] = "jackhammer"
+// words[18] = "thong"
+// words[19] = "wunderkid"
+// words[20] = "dazzlement"
+// words[21] = 
+// words[22] = "witchcraft"
+// words[23] = "pawnbroker"
+// words[24] = "thumbprint"
+// words[25] = "motorcycle"
+// words[26] = 
+// words[27] = 
+// words[28] = 
+// words[29] = 
+// words[30] = 
+// words[31] = 
+// words[32] = "super duper"
+// words[33] = "minecraft"
+// words[34] = 
+// words[35] = 
+// words[36] = "bluntz"
+// words[37] = "Fruitville"
+// words[38] = 
+// words[39] = 
+// words[40] = 
+// words[41] = 
+// words[42] = 
+// words[43] = "fatass"
+// words[44] = "Bachelor's Degree"
+// words[45] = "transgender"
+// words[46] = "Sexy men"
+// words[47] = "coccyx"
+// words[48] = "Putin"
+// words[49] = "Pootin"
+// words[50] = "Wenis"
+// words[51] = "Clitorus"
+// words[52] = "butthole"
+// words[53] = "Gyrate"
+// words[54] = "dope"
+// words[55] = "TAMPON"
+// words[56] = "JUICEBOX"
+// words[57] = "FRANCE"
+// words[58] = "LICK"
+// words[59] = "POPCYCLE"
+// words[60] = "FELONY"
+// words[61] = "CUPCAKE"
+// words[62] = "CREAMY"
+// words[63] = "SOPHISTICATE"
+// words[64] = "ADMIRE"
+// words[65] = "PROCTOLOGIST"
+// words[66] = "GYNOCOLOGIST"
+// words[67] = "RUMP"
+// words[68] = "GRAVY"
+// words[69] = "PLATAPUS"
+// words[70] = "WOMBAT"
+// words[71] = "CORNUCOPIA"
+// words[72] = "SHAMALAMADINGDONG"
+// words[73] = "OAK"
+// words[74] = "COMPRESS"
+// words[75] = "SIMPLE"
+// words[76] = "SOGGIE"
+// words[77] = "UTERUS"
+// words[78] = "ANUS"
+// words[79] = "COMQUAT"
+// words[80] = "KIWI"
+// words[81] = "BANANA"
+// words[82] = "CUCUMBER"
+// words[83] = "QUANTUM"
+// words[84] = "PIXEL"
+// words[85] = "GAMER"
+// words[86] = "GANGBANG"
+// words[87] = "STROKE"
+// words[88] = "HAMBONE"
+// words[89] = "CREAMPIE"
+// words[90] = "ASPHALT"
+// words[91] = "SHOEHORN"
+// words[92] = "CHUB"
+// words[93] = "TOUNGE"
+// words[94] = "BOGGIE"
+// words[95] = "LACTATE"
+// words[96] = "RUMOR"
+// words[97] = "SCTROTUM"
+// words[98] = "CHICKENWING"
+// words[99] = "NUGGET"
+// words[100] = "RUBY"
+// words[101] = "MORTGAGE"
+// words[102] = "CREAMATED"
+// words[103] = "FLATLINE"
+// words[104] = "DOGMA"
+// words[105] = "ENCAPULATE"
+// words[106] = "SUCKULANT"
+// words[107] = "PUSSYWILLOW"
+// words[108] = "AIRHORN"
+// words[109] = "EMASCULATE"
+// words[110] = "ALLAH"
+// words[111] = "THE FACEBOOK"
+// words[112] = "FEMINAZI"
+// words[113] = "WHIPPED"
+// words[114] = "FRAPPÉ"
+// words[115] = "SCHNOCKERED"
+// words[116] = "SHMUCK"
+// words[117] = "DEFLOWERED"
+// words[118] = "6INCH HEELS"
+// words[119] = "CHRISTENDOM"
+// words[120] = "ANAL"
+// words[121] = "BEAUTIMOUS"
+// words[122] = "JUICE"
+// words[123] = "SHINEBOX"
+// words[124] = "STREETSHITTER"
+// words[125] = "EXCRETION"
+// words[126] = "PARAPHERNALIA"
+// words[127] = "CIRCLEJERK"
+// words[128] = "CRIPPLE"
+// words[129] = "ANARCHY"
+// words[130] = "CAPITOLISM"
+// words[131] = "KNICKERS"
+// words[132] = "YOUR MOM"
+// words[133] = "BUTCH"
+// words[134] = "TWINK"
+// words[135] = "TWINKIE"
+// words[136] = "POLYGAMY"
+// words[137] = "TREKKIE"
+// words[138] = "MORMONISM"
+// words[139] = "SAUCY"
+// words[140] = "MEMEs"
+// words[141] = "SHEEPLE"
+// words[142] = "BAE"
+// words[143] = "TRAPPIN"
+// words[144] = "THUGLIFE"
+// words[145] = "BRICKHOUSE"
+// words[146] = "THICC"
+// words[147] = "LE DOGE"
+// words[148] = "HOOBASTANK"
+// words[149] = "OSCARMEYER WEINER"
+// words[150] = "PANSEXUAL"
+// words[151] = "GLORY HOLEE"
+// words[152] = "SALTY"
+// words[153] = "LIMP"
+// words[154] = "LIMP BIZKIT"
+// words[155] = "FLACCID"
+// words[156] = "2008"
+// words[157] = "MILLENNIALS"
+// words[158] = "MILF"
+// words[159] = "GILF"
+// words[160] = "DILF"
+// words[161] = "REGANOMICS"
+// words[162] = "CRACK IN THE 80s"
+// words[163] = "CRIPS AND BLOODS"
+// words[164] = "WORMHOLE"
+// words[165] = "SUBURBANISM"
+// words[166] = "VEGAN"
+// words[167] = "CANNABINOIDS"
+// words[168] = "CANNIBALS"
+// words[169] = "INDEGESTION"
+// words[170] = "FANNYPACK"
+// words[171] = "DYSENTERY"
+// words[172] = "TRAIL OF TEARS"
+// words[173] = "SHART"
+// words[174] = "SOCK PUPPETS"
+// words[175] = "CORNFLAKES IN OJ"
+// words[176] = "COMMANDO"
+// words[177] = "CLICKBAIT"
+// words[178] = "JAILBAIT"
+// words[179] = "BLUE WAFFLE"
+// words[180] = "NARCOLEPSY"
+// words[181] = "TUB GIRL"
+// words[182] = "GET SCHWIFTY"
+// words[183] = "BOOBIES"
+// words[184] = "SNIFFING GLUE"
+// words[185] = "BUSH DID 9/11"
+// words[186] = "TINDER"
+// words[187] = "GRINDR"
+// words[188] = "MAGNUM"
+// words[189] = "SMALL DONG"
+// words[190] = "AUTOEROTIC ASPHYXIATION"
+// words[191] = "COFFEEHOUSE"
+// words[192] = "HIPSTER"
+// words[193] = "COLD BREW"
+// words[194] = "SWAN POT"
+// words[195] = "DRUGS"
+// words[196] = "STARFISH"
+// words[197] = "PULCHRITUDINOUS"
+// words[198] = "BLEACH"
+// words[199] = "AVOCADO TOAST"
+// words[200] = "FAKE NEWS"
+// words[201] = "ALTERNATIVE FACTS"
+// words[202] = "LONDON'S"
+// words[203] = "FISH DICKS"
+// words[204] = "CUM FILLED"
+// words[205] = "CUM DUMPSTER"
+// words[206] = "GERIATRIC"
+// words[207] = "GINGERBREAD HOUSE"
+// words[208] = "SOYLENT"
+// words[209] = "CHIMICHANGA"
+// words[210] = "KRATOM"
+// words[211] = "DONKEY"
+// words[212] = "BIB"
+// words[213] = "JOKEY JOKE"
+// words[214] = "FRONT"
+// words[215] = "MEH"
+// words[216] = "DRINKABLE"
+// words[217] = "MEMORY"
+// words[218] = "CLIP"
+// words[219] = "BYE BOY"
+// words[220] = "DIP"
+// words[221] = "ALRIGHT"
+// words[222] = "SUPER HARD"
+// words[223] = "CALLED"
+// words[224] = "PHONE"
+// words[225] = "SPECIFIC"
+// words[226] = "DRINKFACE"
+// words[227] = "JOYBOY"
+// words[228] = "DRIBBLE BUTT"
+// words[229] = "OLD JOKE GENERATOR"
+// words[230] = "CHECKLIST"
+// words[231] = "FUMBLE"
+// words[232] = "RUMBLE"
+// words[233] = "TOP"
+// words[234] = "DOWERY"
+// words[235] = "JINKIES"
+// words[236] = "OLOF'S"
+// words[237] = "JUNK"
+// words[238] = "EMPORIUM"
+// words[239] = "FALSE"
+// words[240] = "KUNG FU JUICE"
+// words[241] = "JOY DIVISION"
+// words[242] = "TETRA"
+// words[243] = "JOINT"
+// words[244] = "FREE REFILLS"
+// words[245] = "REALESTATE"
+// words[246] = "STREET KNOWLEDGE"
+// words[247] = "PRIDE"
+// words[248] = "NATIONAL"
+// words[249] = "GREATNESS"
+// words[250] = "SOUP BOYS"
+// words[251] = "MELONS"
+// words[252] = "JEDI KNIGHT"
+// words[253] = "HAZEL NUT"
+// words[254] = "LATTE"
+// words[255] = "AVERAGE SEX"
+// words[256] = "MAGICSTICK"
+// words[257] = "RPG"
+// words[258] = "DIAMOND"
+// words[259] = "JACKED UP"
+// words[260] = "END"
+// words[261] = "PRODUCT"
+// words[262] = "DUCKING"
+// words[263] = "BLANKS"
+// words[264] = "CRAFT BEER"
+// words[265] = "COLD BREW"
+// words[266] = "GOLDEN HATS"
+// words[267] = "DINGLE BERRY"
+// words[268] = "FASTER"
+// words[269] = "TASKER"
+// words[270] = "PROCESS"
+// words[271] = "ADULT CAFE"
+// words[272] = "STRIPTEASE"
+// words[273] = "ALGORYTHMIC"
+// words[274] = "KEYWORD"
+// words[275] = "COOKIETIME"
+// words[276] = "QUALITY"
+// words[277] = "ISOLATED"
+// words[278] = "ALT FACTS"
+// words[279] = "ANTIFA"
+// words[280] = "TRASH"
+// words[281] = "PANDAS"
+// words[282] = "DEAF ANIMALS"
+// words[283] = "DEBATE"
+// words[284] = "MUNCHIES"
+// words[285] = "BUCKEYES"
+// words[286] = "STRAWBERRIES"
+// words[287] = "LAVENDER"
+// words[288] = "ALL CURSE WORDS"
+// words[289] = "KNIFE PARTY"
+// words[290] = "PLASTIC"
+// words[291] = "RIG"
+// words[292] = "CHAPTER 2"
+// words[293] = "FOOTNOTES"
+// words[294] = "HYPERLINK"
+// words[295] = "GIST"
+// words[296] = "BORING PODCAST"
+// words[297] = "PODCAT"
+// words[298] = "SHOTS"
+// words[299] = "LIGHTS"
+// words[300] = "LAMPS"
+
+
+
+function BuildArray(size){
+this.length = size
+for (var i = 1; i <= size; i++){
+this[i] = null}
+return this
+}
+
+function PickRandomWord(frm) {
+    
+// Generate a random number between 1 and NumberOfWords
+if(used.length < NumberOfWords) {
+    var rnd = Math.ceil(Math.random() * NumberOfWords)
+
+    if(used.indexOf(rnd) !== -1) {
+       console.log("used number running again")
+       PickRandomWord(document.WordForm);
+       return;
+    } else{
+        // append new value to the array
+        used.push(rnd);
+        // Display the word inside the text box
+        frm.WordBox.value = words[rnd]  
+        console.log(used);
+    }
+} else{
+    console.log("outta werds");
+    return;
+};
+
+
+
+
+}</script>
+
+
+
+
+
+
+
+</body></html>
